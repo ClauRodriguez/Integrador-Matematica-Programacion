@@ -1,0 +1,3 @@
+#Creamos el archivo gitignore para evitar subir archivos generados automaticamente por python
+
+__pycache__/
