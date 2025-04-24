@@ -30,19 +30,44 @@ def binario_to_decimal(num):
 
 def bienvenida():
     print("\n(っ◔◡◔)っ  Bienvenidos al trabajo integrador \n")
-    print("     El siguente programa convierte numeros DECIMALES a BINARIO o viceversa segun el usuario escoja")
+    print("     El siguente programa muestra dos opciones diferentes de juego")
     print("Abajo se extendera un menu de opciones para elegir....\n")
     time.sleep(2)
 
-def menu():
-    print("|    Opcion 1: Convertir numero DECIMAL a BINARIO    |\n")
-    print("|    Opcion 2: Convertir numero BINARIO a DECIMAL    |")
+def menuPrincipal():
+    print("|    Opcion 1: Proyecto Conversión de Números        |\n")
+    print("|    Opcion 2: Juego de Adivinanza en Binario        |\n")
+    print("|    Opcion 3: Cerrar programa                       |\n")
 
-def opciones():
-    menu()
+def menu1():
+    print("\n|    Opcion 1: Convertir numero DECIMAL a BINARIO    |\n")
+    print("|    Opcion 2: Convertir numero BINARIO a DECIMAL    |\n")
+    print("|    Opcion 3: Volver al menu principal              |")
+
+def menu2():
+    pass
+
+def select_game():
+    menuPrincipal()
+    while True:
+        opcion = get_num_entero("\nElija un tipo de juego (1/2/3): ")
+        if opcion == 1:
+            game_Conversion_Numeros()
+        elif opcion == 2:
+            pass
+        elif opcion == 3:
+            print("Cerrando programa...")
+            break
+        else:
+            print("Opcion incorrecta! Por favor intente nuevamente.")
+
+
+def game_Conversion_Numeros():
+    print("\nSelecciono Proyecto Conversión de Números!!\n")
+    menu1()
     while True:
         opcion = get_num_entero("\nElija una opción del menú: ")
-        # Procesar la elección del usuario
+        # Procesamos la eleccion del usuario
         if opcion == 1:
             print("\n       Opcion 1 -> Convertir numero DECIMAL a BINARIO\n")
             num = get_num_entero("Ingrese un numero decimal: ") #pedimos y validamos que el numero ingresado sea un numero entero
@@ -54,8 +79,8 @@ def opciones():
             decimal = binario_to_decimal(num)
             print(f"        El numero decimal del binario {num} es: {decimal}")
         elif opcion == 3:
-            print("Saliendo del programa...")
-            break  # Salir del bucle
+            print("Volviendo al menu principal...")
+            break  # Vuelve al menu principal
         else:
             print("Opción inválida. Intenta de nuevo.")
 
