@@ -17,7 +17,6 @@ def es_entero(num): #Valida que el numero por parametro sea un numero entero
 def es_binario(num):
     form = str(num)
     for i in form:
-        print(f"Este es el valor de i: {i}")
         if i not in ["0","1"]:
             return False
     return True
