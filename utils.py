@@ -1,18 +1,26 @@
 import time
 import random
 
-def get_num_entero(mensaje): #Devuelve un numero entero ingresado por teclado
+def get_num(mensaje,funcion): #Devuelve un numero entero ingresado por teclado
     num = input(f"{mensaje}")
-    while not es_numero_entero(num):
+    while not funcion(num):
         num = input(f"ERROR... {mensaje}")
     return int(num)
 
-def es_numero_entero(num): #Valida que el numero por parametro sea un numero entero
+def es_entero(num): #Valida que el numero por parametro sea un numero entero
     try:
         int(num) 
         return True 
     except ValueError:
         return False
+    
+def es_binario(num):
+    form = str(num)
+    for i in form:
+        print(f"Este es el valor de i: {i}")
+        if i not in ["0","1"]:
+            return False
+    return True
     
 def decimal_to_binario(num): #Convierte un numero decimal a binario
     binario = ""
@@ -33,10 +41,10 @@ def get_numero_aleatorio(num1, num2): #Gnerera un numero aleatorio entre 2 numer
     return random.randint(num1, num2)
 
 def adivinar_numero(num): #Verifica que el numero ingresado por parametro coincida con el generado aleatoriamente
-    userNum = get_num_entero("Ingrese un numero: ")
+    userNum = get_num("Ingrese un numero: ", es_entero)
     intentos = 1
     while userNum != num:
-        userNum = get_num_entero("Numero incorrecto, intente nuevamente!: ")
+        userNum = get_num("Numero incorrecto, intente nuevamente!: ", es_entero)
         intentos += 1
     message = f"Numero ADIVINADO!!!\nIntentos necesarios: {intentos}"
     return message
@@ -68,7 +76,7 @@ def menu2(): #Menu del juego Adivinanza
 def select_game():
     menuPrincipal()
     while True:
-        opcion = get_num_entero("\nElija un tipo de juego (1/2/3): ")
+        opcion = get_num("\nElija un tipo de juego (1/2/3): ", es_entero)
         if opcion == 1:
             game_Conversion_Numeros()
         elif opcion == 2:
@@ -84,17 +92,17 @@ def game_Conversion_Numeros():
     print("\nSelecciono Proyecto Conversión de Números!!\n")
     while True:
         menu1()
-        opcion = get_num_entero("\nElija una opción (1/2/3): ")
+        opcion = get_num("\nElija una opción (1/2/3): ", es_entero)
         # Procesamos la eleccion del usuario
         if opcion == 1:
             print("\n       Opcion 1 -> Convertir numero DECIMAL a BINARIO\n")
-            num = get_num_entero("Ingrese un numero decimal: ") 
+            num = get_num("Ingrese un numero decimal: ", es_entero) 
             binario = decimal_to_binario(num)
             print(f"        El numero binario del decimal {num} es: {binario}")
             add_simbolo("-", 70)
         elif opcion == 2:
             print("\n       Opcion 2 -> Convertir numero BINARIO a DECIMAL\n")
-            num = get_num_entero("Ingrese un numero binario: ")
+            num = get_num("Ingrese un numero binario: ", es_binario)
             decimal = binario_to_decimal(num)
             print(f"        El numero decimal del binario {num} es: {decimal}")
             add_simbolo("-", 70)
@@ -110,13 +118,13 @@ def game_adivinar_numero():
     print("\nSelecciono Juego de Adivinanza!!\n")
     print("El programa lanzara un numero binario entre los rangos que selecciones, luego tendras que adivinar que numero binario es o viceversa, que decimal es :D ")
     print("\nSeleccionemos los rangos!")
-    num1 = get_num_entero("\nElija un numero: ") 
-    num2 = get_num_entero("\nElija un numero: ")
+    num1 = get_num("\nElija un numero: ", es_entero) 
+    num2 = get_num("\nElija un numero: ", es_entero)
     print("Perfecto! Ahora elijamos que queremos adivinar!")
     print(f"Recorda que el rango del numero aleatorio va a estar entre {num1} y {num2}")
     while True:
         menu2()
-        opcion = get_num_entero("\nElija una opción (1/2/3): ")
+        opcion = get_num("\nElija una opción (1/2/3): ", es_entero)
         # Procesamos la eleccion del usuario
         if opcion == 1:
             print("\n       La opcion seleccionada es ADIVINAR EL BINARIO...")
