@@ -10,3 +10,9 @@ Extensión: Validar la entrada y mostrar mensajes de error ante datos incorrecto
 
 Juego de Adivinanza en Binario:
 Mostrar un número en binario y desafiar al usuario a adivinar su equivalente decimal, o viceversa, reforzando la conversión entre ambos sistemas.
+
+Integrantes:
+Nombre: Claudio Hernan
+Apellido: Rodriguez Campos
+Dni: 40684154
+Comision: 20
