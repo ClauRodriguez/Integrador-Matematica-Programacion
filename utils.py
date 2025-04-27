@@ -37,7 +37,7 @@ def binario_to_decimal(num): #Convierte un numero binario a decimal
         decimal += int(binario[-(i + 1)]) * (2 ** i)
     return decimal
 
-def get_numero_aleatorio(num1, num2): #Gnerera un numero aleatorio entre 2 numeros pasados por parametro
+def get_numero_aleatorio(num1, num2): #Gerera un numero aleatorio entre 2 numeros pasados por parametro
     return random.randint(num1, num2)
 
 def adivinar_numero(num): #Verifica que el numero ingresado por parametro coincida con el generado aleatoriamente
