@@ -14,7 +14,7 @@ def es_entero(num): #Valida que el numero por parametro sea un numero entero
     except ValueError:
         return False
     
-def es_binario(num):
+def es_binario(num): #Valida que el numero por parametro sea un numero binario
     form = str(num)
     for i in form:
         if i not in ["0","1"]:
